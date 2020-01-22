@@ -1,0 +1,7 @@
+logging:
+  level:
+    org:
+      springframework:
+        test: off
+        boot:
+          test: off
