@@ -1,0 +1,18 @@
+<extensions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/EXTENSIONS/1.0.0"
+            xsi:schemaLocation="http://maven.apache.org/EXTENSIONS/1.0.0 http://maven.apache.org/xsd/core-extensions-1.0.0.xsd">
+    <extension>
+        <artifactId>jgitver-maven-plugin</artifactId>
+        <groupId>fr.brouillard.oss</groupId>
+        <version>1.5.1</version>
+    </extension>
+    <extension>
+        <groupId>io.takari.maven</groupId>
+        <artifactId>takari-smart-builder</artifactId>
+        <version>0.6.1</version>
+    </extension>
+    <extension>
+        <groupId>io.takari.aether</groupId>
+        <artifactId>takari-local-repository</artifactId>
+        <version>0.11.3</version>
+    </extension>
+</extensions>
