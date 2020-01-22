@@ -9,7 +9,3 @@ management:
   endpoint:
     health:
       show-details: always
-
-spring:
-  main:
-    allow-bean-definition-overriding: true

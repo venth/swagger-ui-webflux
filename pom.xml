@@ -33,11 +33,13 @@
         <!-- swagger ui -->
         <swagger-ui.version>3.22.1</swagger-ui.version>
 
+        <!-- supporting -->
+        <spring-cloud-dependencies.version>Greenwich.RELEASE</spring-cloud-dependencies.version>
         <lombok.version>1.18.8</lombok.version>
         <vavr.version>0.10.2</vavr.version>
 
-        <!-- supporting -->
-        <spring-cloud-dependencies.version>Greenwich.RELEASE</spring-cloud-dependencies.version>
+        <!-- tests -->
+        <archunit-junit5.version>0.13.0</archunit-junit5.version>
 
         <!-- plugins -->
         <openapi-generator-maven-plugin.version>4.2.2</openapi-generator-maven-plugin.version>
@@ -45,7 +47,6 @@
         <download-maven-plugin.version>1.4.2</download-maven-plugin.version>
 
         <api-contracts.outputDirectory>${project.build.directory}/api-contracts</api-contracts.outputDirectory>
-        <archunit-junit5.version>0.13.0</archunit-junit5.version>
     </properties>
 
     <dependencies>
@@ -174,7 +175,11 @@
             <scope>test</scope>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -208,6 +213,12 @@
                 <groupId>org.webjars</groupId>
                 <artifactId>swagger-ui</artifactId>
                 <version>${swagger-ui.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tngtech.archunit</groupId>
+                <artifactId>archunit-junit5</artifactId>
+                <version>${archunit-junit5.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
