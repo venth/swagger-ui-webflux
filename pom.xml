@@ -40,13 +40,17 @@
 
         <!-- tests -->
         <archunit-junit5.version>0.13.0</archunit-junit5.version>
+        <blockhound.version>1.0.1.RELEASE</blockhound.version>
 
         <!-- plugins -->
         <openapi-generator-maven-plugin.version>4.2.2</openapi-generator-maven-plugin.version>
         <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
         <download-maven-plugin.version>1.4.2</download-maven-plugin.version>
 
-        <api-contracts.outputDirectory>${project.build.directory}/api-contracts</api-contracts.outputDirectory>
+        <generated-test-resources.outputDirectory>${project.build.directory}/generated-test-resources
+        </generated-test-resources.outputDirectory>
+        <openapi-contracts.dir>${generated-test-resources.outputDirectory}/documentations/openapi-contracts
+        </openapi-contracts.dir>
     </properties>
 
     <dependencies>
@@ -180,6 +184,12 @@
             <artifactId>archunit-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.projectreactor.tools</groupId>
+            <artifactId>blockhound</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -220,6 +230,12 @@
                 <artifactId>archunit-junit5</artifactId>
                 <version>${archunit-junit5.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.projectreactor.tools</groupId>
+                <artifactId>blockhound</artifactId>
+                <version>${blockhound.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -259,10 +275,12 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml</url>
+                            <url>
+                                https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml
+                            </url>
                             <outputFileName>petstore.yaml</outputFileName>
                             <!-- default target location, just to demonstrate the parameter -->
-                            <outputDirectory>${api-contracts.outputDirectory}</outputDirectory>
+                            <outputDirectory>${openapi-contracts.dir}</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -281,7 +299,7 @@
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>${api-contracts.outputDirectory}</directory>
+                                    <directory>${generated-test-resources.outputDirectory}</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -301,7 +319,7 @@
                         </goals>
                         <configuration>
                             <inputSpec>
-                                ${api-contracts.outputDirectory}/petstore.yaml
+                                ${openapi-contracts.dir}/petstore.yaml
                             </inputSpec>
                             <generatorName>org.openapitools.codegen.languages.SpringCodegen</generatorName>
 
