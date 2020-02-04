@@ -1,4 +1,4 @@
-package com.github.venth.swagger_ui_webflux.documentation.swagger_ui;
+package com.github.venth.swagger_ui_webflux.documentations.swagger_ui;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.ArrayUtils;

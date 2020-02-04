@@ -1,4 +1,4 @@
-package com.github.venth.swagger_ui_webflux.documentation.swagger_ui;
+package com.github.venth.swagger_ui_webflux.documentations.swagger_ui;
 
 import com.github.venth.swagger_ui_webflux.Application;
 import com.github.venth.swagger_ui_webflux.test.BlockHoundExtension;
