@@ -189,5 +189,28 @@ class SwaggerUIConfiguration implements WebFluxConfigurer {
 
 Straightforward, you say?
 
-Yeah, you're right. I got pretty half an hour of hard time to figure out, how to deal with a webjar's content.
+Yeah, it was tough. I got pretty half an hour of hard time to figure out, how to deal with a webjar's content.
+WebJar structure looks like that:
+![webjar structure](./webjar_structure.jpg)
 
+The url path, if nothing would be done, would look like: `/documentations/webjars/swagger-ui/3.22.1/index.html`
+`/documentations` - is from `.addResourceHandler("/documentations/**")`, rest is from the location of webjar's resources.
+
+My first thought was to write a custom resolver that would take care about webjar structure and skip not relevant parts.
+There were issues like:
+* resource name - `swagger-ui` which must be provided,
+* resource version - `3.22.1` must be provided as well.
+
+Writing a custom resolver isn't tough job to perform, still perhaps someone already wrote it - the webjar structure
+looks like something that can be tackled by a generic resolver. I googled this time and found:
+```xml
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>webjars-locator-core</artifactId>
+</dependency>
+```
+
+I used aforementioned snippet to extend maven `pom.xml`, added resolver `.addResolver(webJarsResourceResolver()`
+and ran `SwaggerUITest`.
+
+This time it was green.
