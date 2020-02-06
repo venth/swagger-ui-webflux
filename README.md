@@ -191,7 +191,7 @@ Straightforward, you say?
 
 Yeah, it was tough. I got pretty half an hour of hard time to figure out, how to deal with a webjar's content.
 WebJar structure looks like that:
-![webjar structure](./webjar_structure.jpg)
+![webjar structure](webjar_structure.jpg)
 
 The url path, if nothing would be done, would look like: `/documentations/webjars/swagger-ui/3.22.1/index.html`
 `/documentations` - is from `.addResourceHandler("/documentations/**")`, rest is from the location of webjar's resources.
