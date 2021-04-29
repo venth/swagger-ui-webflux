@@ -43,7 +43,7 @@
         <blockhound.version>1.0.1.RELEASE</blockhound.version>
 
         <!-- plugins -->
-        <openapi-generator-maven-plugin.version>4.2.2</openapi-generator-maven-plugin.version>
+        <openapi-generator-maven-plugin.version>5.1.0</openapi-generator-maven-plugin.version>
         <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
         <download-maven-plugin.version>1.4.2</download-maven-plugin.version>
 
